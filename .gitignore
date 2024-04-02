@@ -1,0 +1,5 @@
+node_modules/
+package-lock.json
+/public/bundle.*
+/public/index.html
+/ssr-bundle.mjs

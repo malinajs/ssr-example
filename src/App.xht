@@ -1,0 +1,34 @@
+<script>
+  let value = 'todo';
+
+  let list = [{value: 'Ubuntu', done: true}, {value: 'Debian'}];
+
+  const keydown = () => {
+    list.push({value});
+    value = '';
+  }
+</script>
+
+<input type="text" :value @keydown|enter />
+
+<hr/>
+
+{#each list as item}
+  <div class:done={item.done}>
+    <input type="checkbox" :checked={item.done} />
+    {item.value}
+  </div>
+{/each}
+
+<hr/>
+
+{list.filter(i => i.done).length} are completed
+
+<style>
+  div {
+    margin: 5px 0;
+  }
+  div.done {
+    color: gray;
+  }
+</style>
